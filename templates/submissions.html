@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stored Submissions</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='./styles/styles.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Stored Information</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/submissions">View</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h2>Submissions List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Timestamp</th>
+            <th>Weather</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for submission in submissions %}
+          <tr>
+            <td>{{ submission.name }}</td>
+            <td>{{ submission.email }}</td>
+            <td>{{ submission.timestamp }}</td>
+            <td>{{ submission.weather }}</td>
+            <td>{{ submission.city }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
